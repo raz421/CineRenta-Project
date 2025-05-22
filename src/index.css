@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --container-center: auto;
+  --container-padding: 1.25rem;
+  --color-primary: #00d991;
+}
+
+.container {
+  width: 100%;
+  margin-right: var(--container-center);
+  margin-left: var(--container-center);
+  padding-right: var(--container-padding);
+  padding-left: var(--container-padding);
+}
+
+.dark {
+  @apply bg-[#171923] text-white;
+}
