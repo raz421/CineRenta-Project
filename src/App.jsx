@@ -1,17 +1,15 @@
-import MoviesList from "./components/cine/MoviesList";
-import Headrer from "./components/Header";
-import Sidebar from "./components/Sidebar";
+import { useState } from "react";
+import Page from "./components/Page";
+import { MovieContext, ThemeContext } from "./context";
 
 export default function App() {
+  const [cards, setCards] = useState([]);
+  const [dark, setDark] = useState(true);
   return (
-    <div>
-      <Headrer />
-      <main>
-        <div className="container grid lg:grid-cols-[218px_1fr] gap-[3.5rem]">
-          <Sidebar />
-          <MoviesList />
-        </div>
-      </main>
-    </div>
+    <MovieContext.Provider value={{ cards, setCards }}>
+      <ThemeContext.Provider value={{ dark, setDark }}>
+        <Page />
+      </ThemeContext.Provider>
+    </MovieContext.Provider>
   );
 }
